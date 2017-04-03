@@ -1,3 +1,6 @@
+
+echo "Start updateing host file"
+
 function h1() {
   echo ""
   echo "###########################################################################################################"
@@ -33,9 +36,8 @@ function host_machine_update_hosts() {
   #write new hosts file
   echo -e "$out\n$hostString" > /etc/hosts
   echo -e "$hostString"
-  
-  ip_route
+
+  #ip_route
 }
 
-echo "Starting"
 host_machine_update_hosts $@
