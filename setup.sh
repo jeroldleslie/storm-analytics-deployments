@@ -74,7 +74,7 @@ function container_update_hosts() {
     #ssh-keygen -R $container_name
     
     echo "Update /etc/hosts for $container_name"
-    ssh -o StrictHostKeyChecking=no -p $(login_ssh_port $image) sneha@$HOST_IP "echo '$HOSTS'  > /etc/hosts"
+    ssh -o StrictHostKeyChecking=no sneha@$HOST_IP "echo '$HOSTS'  > /etc/hosts"
   done
 }
 
