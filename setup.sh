@@ -1,4 +1,7 @@
 
+echo "remove containers"
+docker rm -f $(docker ps -aq)
+
 echo "Start updateing host file"
 
 function h1() {
@@ -80,3 +83,22 @@ function container_update_hosts() {
 
 host_machine_update_hosts $@
 container_update_hosts $@
+
+docker run -d -p 22 -p 2181 --privileged -h zookeeper-1 --name zookeeper-1 zookeeper-1:sneha
+docker run -d -p 22 -p 9092 --privileged -h kafka-1 --name kafka-1 kafka-1:sneha
+docker run -d -p 22 -p 9092 --privileged -h kafka-2 --name kafka-2 kafka-2:sneha
+docker run -d -p 22 -p 2181 --privileged -h kafka-3 --name kafka-3 kafka-3:sneha
+
+sleep 5
+
+echo "Start Zookeeper"
+
+docker exec -it zookeeper-1 /opt/zookeeper/bin/zkServer.sh start
+
+sleep 5
+
+
+echo "Start 3 Kafka"
+docker exec -it kafka-1 /opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties
+docker exec -it kafka-2 /opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties
+docker exec -it kafka-3 /opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties
