@@ -16,5 +16,7 @@ ssh sneha@kafka-storm-1 'nohup /opt/storm/bin/storm nimbus &' &
 echo 'Storm nimbus started'
 ssh sneha@kafka-storm-1 'nohup /opt/storm/bin/storm ui &' &
 echo 'Storm ui started'
-ssh sneha@kafka-storm-1 'nohup /opt/storm/bin/storm supervisor&' &
+ssh sneha@kafka-storm-2 'nohup /opt/storm/bin/storm supervisor&' &
+echo 'Storm supervisor started'
+ssh sneha@kafka-storm-3 'nohup /opt/storm/bin/storm supervisor&' &
 echo 'Storm supervisor started'
