@@ -70,11 +70,11 @@ function container_update_hosts() {
     container_name=$(docker inspect -f {{.Config.Hostname}} $image)
     
     #Update ssh key while we're at it
-    echo "ssh-keygen -R $container_name"
-    ssh-keygen -R $container_name
+    #echo "ssh-keygen -R $container_name"
+    #ssh-keygen -R $container_name
     
     echo "Update /etc/hosts for $container_name"
-    ssh -o StrictHostKeyChecking=no -p $(login_ssh_port $image) root@$HOST_IP "echo '$HOSTS'  > /etc/hosts"
+    ssh -o StrictHostKeyChecking=no -p $(login_ssh_port $image) sneha@$HOST_IP "echo '$HOSTS'  > /etc/hosts"
   done
 }
 
