@@ -24,14 +24,14 @@ ssh sneha@kafka-storm-3 'nohup /opt/storm/bin/storm supervisor&' &
 echo 'Storm supervisor started'
 
 
-echo 'Sleeping for 30 seconds to allow all services and clusters to start...'
+#echo 'Sleeping for 30 seconds to allow all services and clusters to start...'
 
-echo 'Create kafka topic'
-ssh sneha@kafka-storm-1 '/opt/kafka/bin/kafka-topics.sh --create --zookeeper zookeeper-1:2181 --replication-factor 2 --partitions 2 --topic storm-events'
-echo 'storm-events topic created'
+#echo 'Create kafka topic'
+#ssh sneha@kafka-storm-1 '/opt/kafka/bin/kafka-topics.sh --create --zookeeper zookeeper-1:2181 --replication-factor 2 --partitions 2 --topic storm-events'
+#echo 'storm-events topic created'
 
-echo 'Check kafka topic'
-ssh sneha@kafka-storm-1 '/opt/kafka/bin/kafka-topics.sh --list --zookeeper zookeeper-1:2181'
+#echo 'Check kafka topic'
+#ssh sneha@kafka-storm-1 '/opt/kafka/bin/kafka-topics.sh --list --zookeeper zookeeper-1:2181'
 
 
 
