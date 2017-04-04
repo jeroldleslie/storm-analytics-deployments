@@ -38,10 +38,10 @@ ssh sneha@kafka-storm-1 '/opt/kafka/bin/kafka-topics.sh --list --zookeeper zooke
 #ssh sneha@kafka-storm-1  '/opt/storm/bin/storm jar /opt/storm-events-analytics-0.0.1-SNAPSHOT-jar-with-dependencies.jar com.stormevents.analytics.StormEventAnalytics zookeeper-1:2181 storm-events /brokers prod mongodb://172.17.0.1:27017/storm-events'
  
 
- bin/kafka-topics.sh --create --zookeeper zookeeper-1:2181 --replication-factor 1 --partitions 1 --topic test
+ #bin/kafka-topics.sh --create --zookeeper zookeeper-1:2181 --replication-factor 1 --partitions 1 --topic test
  #bin/kafka-console-producer.sh --broker-list kafka-storm-1:9092 --topic test
 
 
- bin/kafka-console-producer.sh --broker-list kafka-storm-1:9092 --topic test
+ #bin/kafka-console-producer.sh --broker-list kafka-storm-1:9092 --topic test
 
- bin/kafka-console-consumer.sh --bootstrap-server kafka-storm-1:9092 --topic test --from-beginning
+ #bin/kafka-console-consumer.sh --bootstrap-server kafka-storm-1:9092 --topic test --from-beginning
